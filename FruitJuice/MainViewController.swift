@@ -13,12 +13,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var openTimeLbl: UILabel!
+    @IBOutlet weak var closeTimeLbl: UILabel!
     var username: String = ""
     var password: String = ""
     var arrItems = [FruitModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.navigationItem.setRightBarButtonItem(UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: "logoutPressed:"), animated: true)
+
         self.title = "Fruit Juices"
         self.tableView.tableHeaderView = self.headerView
         println("Username is \(self.username) and password: \(self.password)")
@@ -30,6 +34,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.arrItems.append(obj3)
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.tableView.reloadData()
+        
+    }
+    func logoutPressed(sender: UIBarButtonItem) {
+        println("logout pressed")
+        NSUserDefaults.standardUserDefaults().setValue("", forKey: "session_id")
+        NSUserDefaults.standardUserDefaults().synchronize()
         
     }
 
@@ -63,6 +73,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell: \(self.arrItems[indexPath.row].fruitName)!")
+        let detailController : FruitDetailViewController = FruitDetailViewController(nibName: "FruitDetailViewController", bundle: nil)
+        self.navigationController?.pushViewController(detailController, animated: true)
     }
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
