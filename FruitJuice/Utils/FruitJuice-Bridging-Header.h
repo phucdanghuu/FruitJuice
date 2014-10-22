@@ -9,5 +9,5 @@
 #ifndef FruitJuice_FruitJuice_Bridging_Header_h
 #define FruitJuice_FruitJuice_Bridging_Header_h
 #import <SVProgressHUD/SVProgressHUD.h>
-
+#import <AFNetworking/AFNetworking.h>
 #endif

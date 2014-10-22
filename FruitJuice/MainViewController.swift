@@ -51,7 +51,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         
         var currentFruit:FruitModel = self.arrItems[indexPath.row]
-        cell.textLabel?.text = currentFruit.fruitName
+        cell.textLabel.text = currentFruit.fruitName
         cell.detailTextLabel?.text = "Quantity: \(currentFruit.fruitQuantity)"
         cell.accessoryType = currentFruit.isOrdered == true ? UITableViewCellAccessoryType.Checkmark : UITableViewCellAccessoryType.None
         return cell
