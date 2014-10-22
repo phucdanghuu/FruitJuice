@@ -47,21 +47,30 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     // MARK: - Table view delegate
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell! = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
-
+        var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("cell") as? UITableViewCell
+        if (cell != nil)
+        {
+            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle,
+                reuseIdentifier: "cell")
+        }
         
         var currentFruit:FruitModel = self.arrItems[indexPath.row]
-        cell.textLabel.text = currentFruit.fruitName
-        cell.detailTextLabel?.text = "Quantity: \(currentFruit.fruitQuantity)"
-        cell.accessoryType = currentFruit.isOrdered == true ? UITableViewCellAccessoryType.Checkmark : UITableViewCellAccessoryType.None
-        return cell
+        cell?.textLabel.text = currentFruit.fruitName
+        cell?.detailTextLabel?.text = "Quantity: \(currentFruit.fruitQuantity)"
+        cell?.accessoryType = currentFruit.isOrdered == true ? UITableViewCellAccessoryType.Checkmark : UITableViewCellAccessoryType.None
+        return cell!
     }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell: \(self.arrItems[indexPath.row].fruitName)!")
     }
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 50.0
     }
 
 }
