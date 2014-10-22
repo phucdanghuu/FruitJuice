@@ -13,14 +13,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController?
+    var controller : UIViewController?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        NSUserDefaults.standardUserDefaults().setValue(true, forKey: "is_admin")
+        NSUserDefaults.standardUserDefaults().synchronize()
         
-        var mainController: LoginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        self.navigationController = UINavigationController(rootViewController: mainController)
+        var session_id: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("session_id")
+        if(session_id == nil){
+            controller = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        }else{
+            var is_admin: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("is_admin")
+            if(is_admin?.boolValue == true){
+                controller = FJManageViewController(nibName: "FJManageViewController", bundle: nil)
+            }else{
+                controller = MainViewController(nibName: "MainViewController", bundle: nil)
+            }
+            
+        }
+        
+        self.navigationController = UINavigationController(rootViewController: controller!)
         self.window!.rootViewController = self.navigationController
         self.window!.makeKeyAndVisible()
         

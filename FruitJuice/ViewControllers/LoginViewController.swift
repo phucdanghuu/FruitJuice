@@ -31,6 +31,9 @@ class LoginViewController: UIViewController {
     func getUserNameAndPassword(){
         var userName = self.userNameTxt.text;
         var passWord = self.passwordTxt.text;
+        NSUserDefaults.standardUserDefaults().setValue("abc", forKey: "session_id")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
         println("Username is \(userName), password: \(passWord)")
         let mainController : MainViewController = MainViewController(nibName: "MainViewController", bundle: nil)
         mainController.username = userName

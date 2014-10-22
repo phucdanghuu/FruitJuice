@@ -6,7 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="FruitJuice" customModuleProvider="target">
             <connections>
+                <outlet property="closeTimeLbl" destination="eol-7o-mn4" id="BQO-nN-JWh"/>
                 <outlet property="headerView" destination="Yew-nE-Cju" id="4Tw-rP-hqg"/>
+                <outlet property="openTimeLbl" destination="iRH-jO-60W" id="QaU-03-n5x"/>
                 <outlet property="tableView" destination="LMz-dC-dv3" id="Glt-7j-7eD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
