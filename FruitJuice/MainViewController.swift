@@ -26,6 +26,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.arrItems.append(obj2)
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.tableView.reloadData()
+        
     }
 
     override func didReceiveMemoryWarning() {

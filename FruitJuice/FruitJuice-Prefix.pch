@@ -1,0 +1,14 @@
+//
+//  FruitJuice-Prefix.pch
+//  FruitJuice
+//
+//  Created by Phuc Dang on 10/22/14.
+//  Copyright (c) 2014 Phuc Dang. All rights reserved.
+//
+
+#ifndef FruitJuice_FruitJuice_Prefix_pch
+#define FruitJuice_FruitJuice_Prefix_pch
+
+#import <SVProgressHUD/SVProgressHUD.h>
+
+#endif
