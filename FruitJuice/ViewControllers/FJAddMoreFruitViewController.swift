@@ -8,9 +8,27 @@
 
 import UIKit
 
+typealias CompletionBlock = FruitModel -> ()
+
 class FJAddMoreFruitViewController: UIViewController {
 
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    required override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+    }
+    
+    @IBOutlet weak var quantitySlider: UISlider!
     @IBOutlet weak var nameFruitTxt: UITextField!
+    
+    var block:CompletionBlock!
+    
+    func setBlock(block:CompletionBlock) {
+        self.block = block
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,7 +36,16 @@ class FJAddMoreFruitViewController: UIViewController {
     }
 
     @IBAction func okPressed(sender: AnyObject) {
+        var fruit:FruitModel = FruitModel()
+        fruit.fruitName = nameFruitTxt.text
+        fruit.isOrdered = false
+        fruit.fruitQuantity = Int( self.quantitySlider.value)
+        
+        if (self.block != nil) {
+            self.block(fruit)
+        }
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

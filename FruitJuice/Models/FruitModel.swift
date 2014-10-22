@@ -17,4 +17,13 @@ class FruitModel {
         self.isOrdered = isOrdered
         self.fruitQuantity = quantity
     }
+    
+    init() {
+        self.fruitName = ""
+        self.isOrdered = false
+        self.fruitQuantity = 0
+    }
+    func toDic() ->NSDictionary {
+        return ["name" : self.fruitName, "quantity" : self.fruitQuantity]
+    }
 }

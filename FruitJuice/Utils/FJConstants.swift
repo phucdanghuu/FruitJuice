@@ -9,6 +9,6 @@
 
 struct FJConstants {
     static let BASE_URL:String = "http://192.168.1.139/foodorder/api"
-    
+    static let SESSION_EXPIRED = "SESSION_EXPIRED"
     
 }

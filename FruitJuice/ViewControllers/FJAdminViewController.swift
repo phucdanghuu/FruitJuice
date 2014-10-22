@@ -28,6 +28,7 @@ class FJAdminViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         // Do any additional setup after loading the view.
         //init date picker
+        //self.dateTxt.text = "Event name"
         var customView:UIView = UIView (frame: CGRectMake(0, 100, 320, 160));
         customView.backgroundColor = UIColor.whiteColor();
         datePicker = UIDatePicker(frame: CGRectMake(0, 0, 320, 160));
@@ -39,6 +40,7 @@ class FJAdminViewController: UIViewController, UITableViewDelegate, UITableViewD
         doneButton.addTarget(self, action: "datePickerSelected", forControlEvents: UIControlEvents.TouchUpInside);
         doneButton.backgroundColor = UIColor .lightGrayColor();
         dateTxt.inputAccessoryView = doneButton;
+
         
         //init open time picker
         var customView1:UIView = UIView (frame: CGRectMake(0, 100, 320, 160));
@@ -61,7 +63,7 @@ class FJAdminViewController: UIViewController, UITableViewDelegate, UITableViewD
         customView2 .addSubview(closeTimePicker);
         closeTimeTxt.inputView = customView2;
         var closeTimeDoneButton:UIButton = UIButton (frame: CGRectMake(100, 100, 100, 44));
-        closeTimeDoneButton.setTitle("Done", forState: UIControlState.Normal)
+        closeTimeDoneButton.setTitle("Don   e", forState: UIControlState.Normal)
         closeTimeDoneButton.addTarget(self, action: "closeTimePickerSelected", forControlEvents: UIControlEvents.TouchUpInside);
         closeTimeDoneButton.backgroundColor = UIColor .lightGrayColor();
         closeTimeTxt.inputAccessoryView = closeTimeDoneButton;
@@ -106,6 +108,24 @@ class FJAdminViewController: UIViewController, UITableViewDelegate, UITableViewD
         closeTimeTxt.text = dateFormatter.stringFromDate(closeTimePicker.date)
     }
 
+    @IBAction func touchDone(sender: AnyObject) {
+        var eventModel:FJEventModel = FJEventModel()
+        
+        eventModel.name = "event name";
+        
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd h:mm a"
+        var date = dateFormatter.dateFromString(self.dateTxt.text + " " + self.closeTimeTxt.text)
+            
+        eventModel.closeTime = date
+        
+        eventModel.foodDetails = self.arrItems
+        
+        FJApiClient.sharedApiClient().createEvent(eventModel, responseBlock: { (isSuc, eventModel, error) -> Void in
+            
+            
+        })
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

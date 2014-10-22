@@ -105,12 +105,58 @@ class FJApiClient: NSObject {
                
                var error:NSError = FJCommonFuns.parseErrorDicToNSError(boardsDictionary)
                 
-                responseBlock(isSuc: false, error: error)
+                if error.code == 401 {
+                    self .clearSession()
+                    
+                    NSNotificationCenter.defaultCenter().postNotificationName(FJConstants.SESSION_EXPIRED, object: error)
+                } else {
+                
+                    responseBlock(isSuc: false, error: error)
+                }
             }
             
             
             }) { (operation, error) -> Void in
                 println(error)
         }
+    }
+    
+    func createEvent(event:FJEventModel, responseBlock:(isSuc:Bool, eventModel:FJEventModel!, error:NSError!) -> Void) {
+        var par = ["event" : event.toDic()]
+        
+        FJApiClient.sharedApiClient().postRequest("createevent", parameters: par, comletionBlock: { (operation, responseObj) -> Void in
+            var boardsDictionary: NSDictionary = FJCommonFuns.parseJSON(responseObj as NSData)
+            
+            if !FJCommonFuns.isErrorDic(boardsDictionary) {
+                
+                responseBlock(isSuc: true, eventModel: nil, error:nil)
+                
+            } else {
+                
+                var error:NSError = FJCommonFuns.parseErrorDicToNSError(boardsDictionary)
+                
+                if error.code == 401 {
+                    self .clearSession()
+                    
+                    NSNotificationCenter.defaultCenter().postNotificationName(FJConstants.SESSION_EXPIRED, object: error)
+                } else {
+                    
+                    responseBlock(isSuc: false, eventModel: nil, error:error)
+                }
+            }
+            
+            
+            }) { (operation, error) -> Void in
+                println(error)
+        }
+
+    }
+    
+    
+    func clearSession() {
+        NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "session_id")
+        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "is_admin")
+        NSUserDefaults.standardUserDefaults().synchronize()
+
     }
 }

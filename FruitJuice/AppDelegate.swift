@@ -41,8 +41,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.makeKeyAndVisible()
         
         
-        
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "popToRootView",
+            name:UITextFieldTextDidChangeNotification,
+            object: nil
+        )
         return true
+    }
+    
+    func popToRootView() {
+        self.window?.rootViewController?.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     func switchLoginPage(){
