@@ -10,6 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     var username: String = ""
@@ -18,12 +19,15 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.title = "Main Page"
+        self.title = "Fruit Juices"
+        self.tableView.tableHeaderView = self.headerView
         println("Username is \(self.username) and password: \(self.password)")
-        var obj1 = FruitModel(name: "Test 1", isOrdered: false)
-        var obj2 = FruitModel(name: "Test 2", isOrdered: false)
+        var obj1 = FruitModel(name: "Orange", isOrdered: true, quantity: 10)
+        var obj2 = FruitModel(name: "Test 1", isOrdered: true, quantity: 10)
+        var obj3 = FruitModel(name: "Test 2", isOrdered: false, quantity: 10)
         self.arrItems.append(obj1)
         self.arrItems.append(obj2)
+        self.arrItems.append(obj3)
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.tableView.reloadData()
         
@@ -43,14 +47,21 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     // MARK: - Table view delegate
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
+        var cell:UITableViewCell! = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
+
         
-        cell.textLabel.text = self.arrItems[indexPath.row].name
-        
+        var currentFruit:FruitModel = self.arrItems[indexPath.row]
+        cell.textLabel.text = currentFruit.fruitName
+        cell.detailTextLabel?.text = "Quantity: \(currentFruit.fruitQuantity)"
+        cell.accessoryType = currentFruit.isOrdered == true ? UITableViewCellAccessoryType.Checkmark : UITableViewCellAccessoryType.None
         return cell
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("You selected cell: \(self.arrItems[indexPath.row].name)!")
+        println("You selected cell: \(self.arrItems[indexPath.row].fruitName)!")
+    }
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
     }
 
 }

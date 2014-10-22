@@ -19,6 +19,8 @@
 		FD79D0A519F66F2B003BBD2A /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79D0A319F66F2B003BBD2A /* DetailTableViewController.swift */; };
 		FD79D0A619F66F2B003BBD2A /* DetailTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD79D0A419F66F2B003BBD2A /* DetailTableViewController.xib */; };
 		FD79D0AD19F6779E003BBD2A /* FruitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79D0AC19F6779E003BBD2A /* FruitModel.swift */; };
+		FDE3D7EA19F7743D00E75E22 /* FruitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE3D7E819F7743D00E75E22 /* FruitDetailViewController.swift */; };
+		FDE3D7EB19F7743D00E75E22 /* FruitDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE3D7E919F7743D00E75E22 /* FruitDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		FD79D0AC19F6779E003BBD2A /* FruitModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitModel.swift; sourceTree = "<group>"; };
 		FDE3D7E619F7689D00E75E22 /* FruitJuice-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FruitJuice-Bridging-Header.h"; sourceTree = "<group>"; };
 		FDE3D7E719F7697400E75E22 /* FruitJuice-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FruitJuice-Prefix.pch"; sourceTree = "<group>"; };
+		FDE3D7E819F7743D00E75E22 /* FruitDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FruitDetailViewController.swift; sourceTree = "<group>"; };
+		FDE3D7E919F7743D00E75E22 /* FruitDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FruitDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +187,8 @@
 				FD79D0A019F658C0003BBD2A /* LoginViewController.xib */,
 				FD79D0A319F66F2B003BBD2A /* DetailTableViewController.swift */,
 				FD79D0A419F66F2B003BBD2A /* DetailTableViewController.xib */,
+				FDE3D7E819F7743D00E75E22 /* FruitDetailViewController.swift */,
+				FDE3D7E919F7743D00E75E22 /* FruitDetailViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -279,6 +285,7 @@
 			files = (
 				FD79D0A219F658C0003BBD2A /* LoginViewController.xib in Resources */,
 				FD79D08219F650D9003BBD2A /* LaunchScreen.xib in Resources */,
+				FDE3D7EB19F7743D00E75E22 /* FruitDetailViewController.xib in Resources */,
 				FD79D09A19F65121003BBD2A /* MainViewController.xib in Resources */,
 				FD79D0A619F66F2B003BBD2A /* DetailTableViewController.xib in Resources */,
 				FD79D07F19F650D9003BBD2A /* Images.xcassets in Resources */,
@@ -334,6 +341,7 @@
 			files = (
 				FD79D0A519F66F2B003BBD2A /* DetailTableViewController.swift in Sources */,
 				FD79D0A119F658C0003BBD2A /* LoginViewController.swift in Sources */,
+				FDE3D7EA19F7743D00E75E22 /* FruitDetailViewController.swift in Sources */,
 				FD79D0AD19F6779E003BBD2A /* FruitModel.swift in Sources */,
 				FD79D07819F650D8003BBD2A /* AppDelegate.swift in Sources */,
 				FD79D09919F65121003BBD2A /* MainViewController.swift in Sources */,

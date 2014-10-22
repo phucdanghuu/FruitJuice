@@ -4,6 +4,8 @@ inhibit_all_warnings!
 
 source 'https://github.com/CocoaPods/Specs.git'
 pod 'SVProgressHUD'
+pod 'AFNetworking', '~> 2.4.1'
+
 
 #
 #target "FruitJuice" do

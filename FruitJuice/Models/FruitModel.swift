@@ -8,11 +8,13 @@
 
 import Foundation
 class FruitModel {
-    var name : String
+    var fruitName : String
+    var fruitQuantity : Int
     var isOrdered : Bool
     
-    init(name : String, isOrdered: Bool){
-        self.name = name
+    init(name : String, isOrdered: Bool, quantity: Int){
+        self.fruitName = name
         self.isOrdered = isOrdered
+        self.fruitQuantity = quantity
     }
 }
