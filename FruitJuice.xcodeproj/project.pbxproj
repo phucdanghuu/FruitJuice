@@ -25,6 +25,8 @@
 		FDE3D7EF19F78AB800E75E22 /* FJManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE3D7ED19F78AB800E75E22 /* FJManageViewController.xib */; };
 		FDE3D7F219F78C2C00E75E22 /* FJAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE3D7F019F78C2C00E75E22 /* FJAdminViewController.swift */; };
 		FDE3D7F319F78C2C00E75E22 /* FJAdminViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE3D7F119F78C2C00E75E22 /* FJAdminViewController.xib */; };
+		FDE3D7F619F7A1C700E75E22 /* FJAddMoreFruitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE3D7F419F7A1C600E75E22 /* FJAddMoreFruitViewController.swift */; };
+		FDE3D7F719F7A1C700E75E22 /* FJAddMoreFruitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE3D7F519F7A1C700E75E22 /* FJAddMoreFruitViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		FDE3D7ED19F78AB800E75E22 /* FJManageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FJManageViewController.xib; sourceTree = "<group>"; };
 		FDE3D7F019F78C2C00E75E22 /* FJAdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FJAdminViewController.swift; sourceTree = "<group>"; };
 		FDE3D7F119F78C2C00E75E22 /* FJAdminViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FJAdminViewController.xib; sourceTree = "<group>"; };
+		FDE3D7F419F7A1C600E75E22 /* FJAddMoreFruitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FJAddMoreFruitViewController.swift; sourceTree = "<group>"; };
+		FDE3D7F519F7A1C700E75E22 /* FJAddMoreFruitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FJAddMoreFruitViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +205,8 @@
 				FDE3D7ED19F78AB800E75E22 /* FJManageViewController.xib */,
 				FDE3D7F019F78C2C00E75E22 /* FJAdminViewController.swift */,
 				FDE3D7F119F78C2C00E75E22 /* FJAdminViewController.xib */,
+				FDE3D7F419F7A1C600E75E22 /* FJAddMoreFruitViewController.swift */,
+				FDE3D7F519F7A1C700E75E22 /* FJAddMoreFruitViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -296,6 +302,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDE3D7F719F7A1C700E75E22 /* FJAddMoreFruitViewController.xib in Resources */,
 				FD79D0A219F658C0003BBD2A /* LoginViewController.xib in Resources */,
 				FD79D08219F650D9003BBD2A /* LaunchScreen.xib in Resources */,
 				FDE3D7F319F78C2C00E75E22 /* FJAdminViewController.xib in Resources */,
@@ -361,6 +368,7 @@
 				FD79D0AD19F6779E003BBD2A /* FruitModel.swift in Sources */,
 				FD79D07819F650D8003BBD2A /* AppDelegate.swift in Sources */,
 				FDE3D7F219F78C2C00E75E22 /* FJAdminViewController.swift in Sources */,
+				FDE3D7F619F7A1C700E75E22 /* FJAddMoreFruitViewController.swift in Sources */,
 				FD79D09919F65121003BBD2A /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

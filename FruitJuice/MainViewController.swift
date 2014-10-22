@@ -40,7 +40,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         println("logout pressed")
         NSUserDefaults.standardUserDefaults().setValue("", forKey: "session_id")
         NSUserDefaults.standardUserDefaults().synchronize()
-        
+        NSNotificationCenter.defaultCenter().postNotificationName("logout_notification", object: nil)
     }
 
     override func didReceiveMemoryWarning() {

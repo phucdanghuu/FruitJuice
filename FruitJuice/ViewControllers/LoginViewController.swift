@@ -33,11 +33,16 @@ class LoginViewController: UIViewController {
         var passWord = self.passwordTxt.text;
         NSUserDefaults.standardUserDefaults().setValue("abc", forKey: "session_id")
         NSUserDefaults.standardUserDefaults().synchronize()
+        var is_admin: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("is_admin")
+        if(is_admin?.boolValue != true){
+            let mainController : MainViewController = MainViewController(nibName: "MainViewController", bundle: nil)
+            mainController.username = userName
+            mainController.password = passWord
+            self.navigationController?.pushViewController(mainController, animated: true)
+        }else{
+            let controller : FJManageViewController = FJManageViewController(nibName: "FJManageViewController", bundle: nil)
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
         
-        println("Username is \(userName), password: \(passWord)")
-        let mainController : MainViewController = MainViewController(nibName: "MainViewController", bundle: nil)
-        mainController.username = userName
-        mainController.password = passWord
-        self.navigationController?.pushViewController(mainController, animated: true)
     }
 }
