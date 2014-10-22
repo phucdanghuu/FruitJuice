@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSUserDefaults.standardUserDefaults().setValue(true, forKey: "is_admin")
         NSUserDefaults.standardUserDefaults().synchronize()
         
-        var session_id: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("session_id")
-        if(session_id == nil){
+        var session_id: String = NSUserDefaults.standardUserDefaults().objectForKey("session_id") as String!
+        if(session_id == ""){
             controller = LoginViewController(nibName: "LoginViewController", bundle: nil)
         }else{
             var is_admin: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("is_admin")
