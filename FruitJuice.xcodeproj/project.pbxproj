@@ -247,6 +247,7 @@
 		FD79D06A19F650D8003BBD2A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = FJ;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Phuc Dang";
 				TargetAttributes = {
