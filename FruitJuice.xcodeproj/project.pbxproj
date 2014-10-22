@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		386FDBBC37E2F5C37412A8F7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A0658E85DE4E0C3BE11382 /* libPods.a */; };
+		6E4597DF19F79AD000B5E509 /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4597DE19F79AD000B5E509 /* json.swift */; };
+		6E4597E119F7A00400B5E509 /* FJCommonFuns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4597E019F7A00400B5E509 /* FJCommonFuns.swift */; };
+		6E4620F319F789E1009D4336 /* FJConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4620F219F789E1009D4336 /* FJConstants.swift */; };
+		6EFC9A1C19F785BD00D84CF0 /* FJApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFC9A1B19F785BD00D84CF0 /* FJApiClient.swift */; };
 		FD79D07819F650D8003BBD2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79D07719F650D8003BBD2A /* AppDelegate.swift */; };
 		FD79D07F19F650D9003BBD2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD79D07E19F650D9003BBD2A /* Images.xcassets */; };
 		FD79D08219F650D9003BBD2A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD79D08019F650D9003BBD2A /* LaunchScreen.xib */; };
@@ -42,6 +46,10 @@
 /* Begin PBXFileReference section */
 		00A0658E85DE4E0C3BE11382 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		01295754078DE7EE49B6A7B3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		6E4597DE19F79AD000B5E509 /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
+		6E4597E019F7A00400B5E509 /* FJCommonFuns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FJCommonFuns.swift; sourceTree = "<group>"; };
+		6E4620F219F789E1009D4336 /* FJConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FJConstants.swift; sourceTree = "<group>"; };
+		6EFC9A1B19F785BD00D84CF0 /* FJApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FJApiClient.swift; sourceTree = "<group>"; };
 		D7E653BD4F14353B606B4F05 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FD79D07219F650D8003BBD2A /* FruitJuice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitJuice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD79D07619F650D8003BBD2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,6 +179,7 @@
 		FD79D09B19F657E1003BBD2A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				6EFC9A1B19F785BD00D84CF0 /* FJApiClient.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -185,7 +194,10 @@
 		FD79D09D19F657E1003BBD2A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				6E4597DE19F79AD000B5E509 /* json.swift */,
 				FDE3D7E619F7689D00E75E22 /* FruitJuice-Bridging-Header.h */,
+				6E4620F219F789E1009D4336 /* FJConstants.swift */,
+				6E4597E019F7A00400B5E509 /* FJCommonFuns.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -361,6 +373,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E4597E119F7A00400B5E509 /* FJCommonFuns.swift in Sources */,
+				6EFC9A1C19F785BD00D84CF0 /* FJApiClient.swift in Sources */,
+				6E4620F319F789E1009D4336 /* FJConstants.swift in Sources */,
+				6E4597DF19F79AD000B5E509 /* json.swift in Sources */,
 				FD79D0A519F66F2B003BBD2A /* DetailTableViewController.swift in Sources */,
 				FD79D0A119F658C0003BBD2A /* LoginViewController.swift in Sources */,
 				FDE3D7EA19F7743D00E75E22 /* FruitDetailViewController.swift in Sources */,
