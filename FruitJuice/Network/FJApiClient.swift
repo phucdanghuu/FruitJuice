@@ -95,11 +95,17 @@ class FJApiClient: NSObject {
             
             if !FJCommonFuns.isErrorDic(boardsDictionary) {
                 var session_id = boardsDictionary.objectForKey("session_id") as NSString
-                var isAdmin = boardsDictionary.objectForKey("is_admin") as Bool
-                
+                if(boardsDictionary.objectForKey("is_admin") == nil){
+                    self.isAdmin = false
+                }else{
+                    var isAdmin = boardsDictionary.objectForKey("is_admin") as Bool
+                    
+                    self.isAdmin = isAdmin
+                }
                 self.session_id = session_id;
-                self.isAdmin = isAdmin
                 
+                self.setIsAdmin(self.isAdmin)
+                self.setSessionID(self.session_id)
                 responseBlock(isSuc: true, error: nil)
             } else {
                

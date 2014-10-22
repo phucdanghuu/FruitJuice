@@ -39,6 +39,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func logoutPressed(sender: UIBarButtonItem) {
         println("logout pressed")
         NSUserDefaults.standardUserDefaults().setValue("", forKey: "session_id")
+        NSUserDefaults.standardUserDefaults().setValue(false, forKey: "is_admin")
         NSUserDefaults.standardUserDefaults().synchronize()
         NSNotificationCenter.defaultCenter().postNotificationName("logout_notification", object: nil)
     }

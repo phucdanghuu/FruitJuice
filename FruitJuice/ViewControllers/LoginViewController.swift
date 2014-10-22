@@ -31,18 +31,28 @@ class LoginViewController: UIViewController {
     func getUserNameAndPassword(){
         var userName = self.userNameTxt.text;
         var passWord = self.passwordTxt.text;
-        NSUserDefaults.standardUserDefaults().setValue("abc", forKey: "session_id")
-        NSUserDefaults.standardUserDefaults().synchronize()
-        var is_admin: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("is_admin")
-        if(is_admin?.boolValue != true){
-            let mainController : MainViewController = MainViewController(nibName: "MainViewController", bundle: nil)
-            mainController.username = userName
-            mainController.password = passWord
-            self.navigationController?.pushViewController(mainController, animated: true)
-        }else{
-            let controller : FJManageViewController = FJManageViewController(nibName: "FJManageViewController", bundle: nil)
-            self.navigationController?.pushViewController(controller, animated: true)
+        
+        SVProgressHUD.show()
+        FJApiClient.sharedApiClient().login(userName, password: passWord) { (isSuc, error) -> Void in
+            SVProgressHUD.dismiss()
+            if isSuc{
+                var is_admin: Bool = NSUserDefaults.standardUserDefaults().objectForKey("is_admin") as Bool
+                if(is_admin != true){
+                    let mainController : MainViewController = MainViewController(nibName: "MainViewController", bundle: nil)
+                    mainController.username = userName
+                    mainController.password = passWord
+                    self.navigationController?.pushViewController(mainController, animated: true)
+                }else{
+                    let controller : FJManageViewController = FJManageViewController(nibName: "FJManageViewController", bundle: nil)
+                    self.navigationController?.pushViewController(controller, animated: true)
+                }
+            }else{
+                let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .Alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
         }
+        
         
     }
 }
